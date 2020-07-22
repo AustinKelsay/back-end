@@ -19,5 +19,5 @@
 
 | Method | Endpoint        | Returns                                  | Parameters                                                                                                                               |
 | ------ | --------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | `/api/auth/register` | `201` with the registered user object    | `username`, `password` 
+| POST   | `/api/auth/register` | `201` with the registered user object    | `username`, `password` , 'admin': 1 for making an instructor
 | POST   | `/api/auth/login`    | `200` with a welcome message and a token | `username` and`password` (required)                                                       
