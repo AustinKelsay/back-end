@@ -10,9 +10,7 @@
 
 | Method | Endpoint         | Returns                                         | Parameters                                                                                                                                           |
 | ------ | ---------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GET    | `/api/classes`     | `200` with array of items with user information | 
-| POST   | `/api/classes`     | `201` with the created item object              | Authorization token in the header,         
-          name
+| GET    | `/api/classes`     | `200` with array of items with user information | name
           type
           startTime
           duration
@@ -20,6 +18,7 @@
           location
           numberOfRegisteredAttendees
           maxClassSize
+| POST   | `/api/classes`     | `201` with the created item object              | Authorization token in the header,         
 | PUT  | `/api/classes/:id` | `200` with the updated item object              | Authorization token in the header, same fields as POST request, all optional                                                                         |
 | DELETE | `/api/classes/:id` | `204` with no content                           | Authorization token in the header                                                                                                                    |
 
