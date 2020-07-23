@@ -4,7 +4,6 @@ https://anywhere-fitness-bw-2020.herokuapp.com/
 
 | Method | Endpoint                                  | Returns                                                         | Parameters                                                                                                     |
 | ------ | ----------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-
 | GET    | `/api/auth/users`                 | `200` array of items that is posted by logged in user           | Must have authorization token in the header                                                                              |
 
 
