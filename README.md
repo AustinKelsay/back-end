@@ -1,3 +1,5 @@
+https://anywhere-fitness-bw-2020.herokuapp.com/
+
 ## User
 
 | Method | Endpoint                                  | Returns                                                         | Parameters                                                                                                     |
