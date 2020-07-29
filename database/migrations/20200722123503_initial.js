@@ -24,7 +24,7 @@ exports.up = function(knex) {
           classes.string("type", 128);
           classes.string("startTime", 128);
           classes.string("duration", 128);
-          classes.string("intensity", 128);
+          classes.int("intensity");
           classes.string("location", 128);
           classes.integer("numberOfRegisteredAttendees");
           classes.integer("maxClassSize");
