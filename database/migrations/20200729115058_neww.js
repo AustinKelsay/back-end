@@ -1,6 +1,5 @@
-
 exports.up = function(knex) {
-    return knex.schema.createTable('users', (users) => {
+    return (knex.schema.createTable('users', (users) => {
         users.increments();
   
         users
@@ -17,23 +16,22 @@ exports.up = function(knex) {
           .notNullable()
           .defaultTo(0)
     })
-  
       .createTable('classes', (classes) => {
           classes.increments();
           classes.string("name", 128);
           classes.string("type", 128);
           classes.string("startTime", 128);
           classes.string("duration", 128);
-          classes.integer("intensity");
+          classes.int("intensity");
           classes.string("location", 128);
           classes.integer("numberOfRegisteredAttendees");
           classes.integer("maxClassSize");
-      })
+      }))
   };
   
   exports.down = function(knex) {
-      return knex.schema
+      return( knex.schema
           .dropTableIfExists("classes")
           .dropTableIfExists("users")
+      )
   };
-  

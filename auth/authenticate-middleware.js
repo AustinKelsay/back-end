@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
   } else {
     res.status(400).json({
       message:
-        " your not logged in and pre you got to be to have access to this privelage",
+        "You are not logged in",
     });
   }
 };
