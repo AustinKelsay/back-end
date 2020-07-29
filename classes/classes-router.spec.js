@@ -75,9 +75,11 @@ const bcrypt = require('bcrypt');
             location: 'park',
             numberOfRegisteredAttendees: 7,
             maxClassSize: 12
-         })
+        })
     })
+})
     
+describe('DELETE /:id', () => {
     it('gets the seed classes and then deletes one of the test classes', async () => {
         const classes = await request(server).get('/api/classes')
         expect(classes.body[1]).toStrictEqual({
@@ -101,6 +103,34 @@ const bcrypt = require('bcrypt');
         .set('authorization', login.body.token)
         .set('Content-type', 'application/json')
         expect(classDelete.status).toBe(200)
-        console.log(classDelete.body)
+    })
+})
+
+describe('PUT /:id', () => {
+    it('does a put request and changes one of the seed classes', async () => {
+        const login = await request(server).post("/api/auth/login").send({
+            username: "client",
+            password: 'pass'
+        })
+        expect(login.status).toBe(200)
+        
+        const classPut = await request(server).put('/api/classes/2')
+        .set('authorization', login.body.token)
+        .set('Content-type', 'application/json')
+        .send(testClass)
+        expect(classPut.status).toBe(200)
+
+        const classes = await request(server).get('/api/classes')
+        expect(classes.body[1]).toStrictEqual({
+            id: 2,
+            name: 'test',       
+            type: 'test', 
+            startTime: '2:00pm',
+            duration: '1 hour', 
+            intensity: 1,
+            location: 'park',
+            numberOfRegisteredAttendees: 7,
+            maxClassSize: 12
+        })
     })
 })
