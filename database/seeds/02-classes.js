@@ -10,7 +10,7 @@ exports.seed = function(knex) {
           type: "stretching",
           startTime: "2:00pm",
           duration: "1 hour",
-          intensity: "easy",
+          intensity: 2,
           location: "park",
           numberOfRegisteredAttendees: 7,
           maxClassSize: 12
@@ -20,7 +20,7 @@ exports.seed = function(knex) {
           type: "cardio",
           startTime: "1:00pm",
           duration: "1 hour",
-          intensity: "medium",
+          intensity: 3,
           location: "mall",
           numberOfRegisteredAttendees: 11,
           maxClassSize: 20
