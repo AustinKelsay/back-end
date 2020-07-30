@@ -113,17 +113,44 @@ describe('PUT /:id', () => {
             password: 'pass'
         })
         expect(login.status).toBe(200)
-        
-        const classPut = await request(server).put('/api/classes/2')
+
+        const classesPost = await request(server).post('/api/classes')
         .set('authorization', login.body.token)
         .set('Content-type', 'application/json')
         .send(testClass)
+        expect(classesPost.status).toBe(201)
+        expect(classesPost.body).toStrictEqual({
+            id: 3,
+            name: 'test',       
+            type: 'test', 
+            startTime: '2:00pm',
+            duration: '1 hour', 
+            intensity: 1,
+            location: 'park',
+            numberOfRegisteredAttendees: 7,
+            maxClassSize: 12
+         })
+        
+        const classPut = await request(server).put('/api/classes/3')
+        .set('authorization', login.body.token)
+        .set('Content-type', 'application/json')
+        .send({
+            id: 3,
+            name: 'testtttttttttt',       
+            type: 'test', 
+            startTime: '2:00pm',
+            duration: '1 hour', 
+            intensity: 1,
+            location: 'park',
+            numberOfRegisteredAttendees: 7,
+            maxClassSize: 12
+         })
         expect(classPut.status).toBe(200)
 
         const classes = await request(server).get('/api/classes')
-        expect(classes.body[1]).toStrictEqual({
-            id: 2,
-            name: 'test',       
+        expect(classes.body[2]).toStrictEqual({
+            id: 3,
+            name: 'testtttttttttt',       
             type: 'test', 
             startTime: '2:00pm',
             duration: '1 hour', 
